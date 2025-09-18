@@ -40,13 +40,18 @@
 // }
 import React from 'react'
 // import ThemeChanger from './hooks/ThemeChanger'
-import FontRezier from './hooks/FontRezier'
+// import FontRezier from './hooks/FontRezier'
+// import CompanySearch from './hooks/CompanySearch'
+import LoginPage from './hooks/LoginPage'
 
 const App = () => {
   return (
     <>
       {/* <ThemeChanger/> */}
-      <FontRezier/>
+      {/* <FontRezier/>
+      <CompanySearch/> */}
+      <LoginPage/>
+      
     </>
   )
 }
