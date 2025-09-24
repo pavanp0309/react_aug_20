@@ -1,11 +1,11 @@
 import React from 'react'
-import Hook2 from './hooks/Hook2'
+import NewsList from './components/NewsList'
 
 
 const App = () => {
   return (
     <div>
-      <Hook2/>
+      <NewsList/>
     </div>
   )
 }
