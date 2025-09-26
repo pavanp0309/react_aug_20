@@ -1,14 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const NewsCard = () => {
+const NewsCard = ({articles}) => {
+  console.log(articles)
+  const {id,title,description,image,content,publishedAt,source:{name}}=articles || {}
   return (
- <div className="card mb-3">
-  <img src="..." className="card-img-top" alt="..."/>
+ <div className="card mb-3 mx-3">
+ <Link className='nav-link' to={`/${id}`}>
+   <img src={image} className="card-img-top" alt="..." width={"100%"} height={"250px"}/>
   <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+    <h5 className="card-title fs-3">{title}</h5>
+    <p className="card-text">{description}</p>
+    <p className="card-text"><small className="text-body-secondary">Last updated {Date(publishedAt)} mins ago</small></p>
   </div>
+ </Link>
 </div>
   )
 }
