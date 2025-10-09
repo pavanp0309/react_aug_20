@@ -4,8 +4,11 @@ import { auth } from "../../firebaseconfig";
 import { createContext, useContext, useEffect, useState } from "react";
 
 // creating a instance of the feature
-const provider = new GoogleAuthProvider();
-
+const getGoogleProvider = () => {
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" }); // Always prompt
+  return provider;
+};
 // creating the context
 
 const InvoiceContext = createContext();
@@ -41,6 +44,7 @@ export const InvoiceProvider = ({ children }) => {
   // function to handle googlelogin
   const loginWithGoogle = async () => {
     try {
+      let provider=getGoogleProvider()
       let res = await signInWithPopup(auth, provider);
       // The signed-in user info.
       const u = res.user;
