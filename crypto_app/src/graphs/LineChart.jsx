@@ -41,28 +41,34 @@ const data = {
         if(price<6.5)return "red"
         if(price>6.5)return "green"
         return "blue"
-      })
+      }),
+      fill:false,
+      borderRadius:2,
+      pointRadius:0,
+      lineTension:1
     },
   
   ],
-};
+}
 
  const options = {
   responsive: true,
   plugins: {
-    legend: {
-      position: 'top' ,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
+    legend: false,
   },
+   scales:{
+        x:{
+            display:false
+        },
+        y:{
+           display:false
+        }
+    }
 };
 
   return (
-    <div>
-       <Line options={options} data={data} />;
+    <div className='' style={{width:"100%",height:"50px"}}>
+       <Line options={options} data={data} />
     </div>
   )
 }
